@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nissar F — Senior BI Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFAF6;
+    --panel:#FFFFFF;
+    --ink:#161A22;
+    --ink-soft:#4B5162;
+    --line:#DCD8CC;
+    --navy:#171B26;
+    --navy-soft:#242B3D;
+    --gold:#B4842E;
+    --gold-soft:#E7CE9E;
+    --teal:#2E6B67;
+    --radius:2px;
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold-soft);color:var(--navy);}
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 40px;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    background:var(--navy);
+    color:#EFEEE8;
+    padding:72px 0 56px;
+    position:relative;
+  }
+  .hero-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  .hero-name{
+    font-size:clamp(2.6rem, 5.4vw, 4.2rem);
+    line-height:1.02;
+    color:#FBFAF6;
+  }
+  .hero-role{
+    margin-top:14px;
+    font-size:1.15rem;
+    color:var(--gold-soft);
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+  .hero-contact{
+    text-align:right;
+    font-size:0.92rem;
+    color:#C7C9D4;
+    line-height:1.9;
+    white-space:nowrap;
+  }
+  .hero-contact a{ text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.25); }
+  .hero-contact a:hover{ border-color:var(--gold-soft); color:var(--gold-soft); }
+
+  .hero-lede{
+    margin-top:34px;
+    max-width:640px;
+    font-size:1.06rem;
+    color:#D7D8E0;
+  }
+
+  /* ---------- KPI STRIP ---------- */
+  .kpis{
+    background:var(--navy-soft);
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  .kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+  }
+  .kpi{
+    padding:26px 28px;
+    border-left:1px solid rgba(255,255,255,0.09);
+  }
+  .kpi:first-child{ border-left:none; }
+  .kpi-num{
+    font-family:'Fraunces',serif;
+    font-size:2.1rem;
+    color:var(--gold-soft);
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .kpi svg{ flex:0 0 auto; }
+  .kpi-label{
+    margin-top:4px;
+    font-size:0.82rem;
+    color:#AFB2C2;
+    max-width:19ch;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    padding:56px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .section-head{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:32px;
+    margin-bottom:28px;
+  }
+  .section-head h2{
+    font-size:1.5rem;
+    color:var(--navy);
+  }
+  .section-head .tag{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    padding-top:6px;
+  }
+  .section-body{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:32px;
+  }
+  @media (max-width:640px){
+    .section-head, .section-body{ grid-template-columns:1fr; gap:10px; }
+    .kpi-grid{ grid-template-columns:repeat(2,1fr); }
+    .kpi:nth-child(3){ border-left:none; }
+  }
+
+  /* ---------- SUMMARY ---------- */
+  .summary-text{
+    font-size:1.04rem;
+    max-width:66ch;
+    color:var(--ink);
+  }
+  .summary-text strong{ color:var(--navy); font-weight:600; }
+
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  .timeline{
+    position:relative;
+    padding-left:0;
+  }
+  .job{
+    position:relative;
+    padding:0 0 40px 28px;
+    border-left:2px solid var(--line);
+  }
+  .job:last-child{ padding-bottom:4px; }
+  .job::before{
+    content:"";
+    position:absolute;
+    left:-7px;
+    top:4px;
+    width:12px;
+    height:12px;
+    background:var(--paper);
+    border:2px solid var(--gold);
+    border-radius:50%;
+  }
+  .job-role{
+    font-family:'Fraunces',serif;
+    font-size:1.22rem;
+    font-weight:600;
+    color:var(--navy);
+  }
+  .job-meta{
+    margin-top:3px;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .job-meta .dates{ color:var(--teal); font-weight:600; }
+  .job-intro{
+    margin-top:10px;
+    font-size:0.98rem;
+    color:var(--ink-soft);
+    max-width:64ch;
+  }
+  ul.job-points{
+    margin:14px 0 0;
+    padding:0;
+    list-style:none;
+    max-width:66ch;
+  }
+  ul.job-points li{
+    position:relative;
+    padding-left:18px;
+    margin-bottom:9px;
+    font-size:0.97rem;
+  }
+  ul.job-points li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:9px;
+    width:6px;
+    height:1px;
+    background:var(--gold);
+  }
+  ul.job-points li strong{ color:var(--navy); font-weight:600; }
+
+  /* ---------- SKILLS MATRIX ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .skill-panel{
+    background:var(--panel);
+    padding:22px 24px;
+  }
+  .skill-panel h3{
+    font-size:0.95rem;
+    color:var(--navy);
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+  }
+  .skill-panel p{
+    margin:10px 0 0;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    line-height:1.65;
+  }
+  @media (max-width:640px){ .skills-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- FOOTER PANELS ---------- */
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:32px;
+  }
+  @media (max-width:640px){ .foot-grid{ grid-template-columns:1fr; } }
+  .foot-panel h3{
+    font-size:0.95rem;
+    color:var(--navy);
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    margin-bottom:12px;
+  }
+  .award{
+    margin-bottom:14px;
+  }
+  .award .name{ font-weight:600; color:var(--navy); font-size:0.94rem; }
+  .award .desc{ font-size:0.88rem; color:var(--ink-soft); margin-top:2px; }
+  .edu-item{ font-size:0.94rem; color:var(--ink); }
+  .edu-sub{ font-size:0.88rem; color:var(--ink-soft); margin-top:3px; }
+  .lang-row{
+    display:flex; flex-wrap:wrap; gap:8px 14px; margin-top:2px;
+  }
+  .lang-row span{
+    font-size:0.9rem; color:var(--ink);
+    padding-bottom:2px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* ---------- CLOSING ---------- */
+  footer.closing{
+    background:var(--navy);
+    color:#D7D8E0;
+    padding:44px 0;
+    text-align:left;
+  }
+  .closing-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .closing h2{
+    color:#FBFAF6;
+    font-size:1.4rem;
+  }
+  .closing p{
+    margin:6px 0 0;
+    font-size:0.92rem;
+    color:#AFB2C2;
+  }
+  .cta{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--navy);
+    font-weight:700;
+    font-size:0.92rem;
+    padding:13px 26px;
+    text-decoration:none;
+    border-radius:var(--radius);
+    transition:background 0.15s ease;
+  }
+  .cta:hover{ background:var(--gold-soft); }
+
+  @media print{
+    header.hero, .kpis, footer.closing{ background:white !important; color:var(--ink) !important; }
+    .hero-name, .closing h2{ color:var(--navy) !important; }
+    .kpi-num{ color:var(--teal) !important; }
+    section{ break-inside:avoid; }
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .job::before{ transition:transform 0.2s ease; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <h1 class="hero-name">Nissar F</h1>
+        <div class="hero-role">Senior BI Developer — Power BI &amp; Power Platform Specialist</div>
+      </div>
+      <div class="hero-contact">
+        Bengaluru, Karnataka<br>
+        +91&nbsp;80734&nbsp;84291<br>
+        <a href="mailto:nissar6878@gmail.com">nissar6878@gmail.com</a><br>
+        <a href="https://linkedin.com/in/nissar6878">linkedin.com/in/nissar6878</a>
+      </div>
+    </div>
+    <p class="hero-lede">Builds the reporting infrastructure that finance and operations leadership run on — semantic models, executive KPI dashboards, and Power Platform applications that replace manual spreadsheets with governed, self-service data.</p>
+  </div>
+</header>
+
+<div class="kpis">
+  <div class="wrap">
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-num">
+          10+
+          <svg width="34" height="18" viewBox="0 0 34 18"><polyline points="0,15 8,11 16,12 24,5 34,2" fill="none" stroke="#B4842E" stroke-width="2"/></svg>
+        </div>
+        <div class="kpi-label">Years in technology &amp; operations</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">
+          5+
+          <svg width="34" height="18" viewBox="0 0 34 18"><rect x="0" y="9" width="5" height="9" fill="#B4842E"/><rect x="8" y="6" width="5" height="12" fill="#B4842E"/><rect x="16" y="3" width="5" height="15" fill="#B4842E"/><rect x="24" y="0" width="5" height="18" fill="#B4842E"/></svg>
+        </div>
+        <div class="kpi-label">Years specialised in Power BI &amp; Power Platform</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">
+          60%
+          <svg width="34" height="18" viewBox="0 0 34 18"><path d="M9,9 A9,9 0 1 1 9,9.001" fill="none" stroke="#3A4054" stroke-width="3"/><path d="M9,9 L9,0 A9,9 0 0 1 16.8,13.5 Z" fill="#B4842E"/></svg>
+        </div>
+        <div class="kpi-label">Cut in manual reporting effort</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">
+          40%+
+          <svg width="34" height="18" viewBox="0 0 34 18"><polyline points="0,16 10,13 20,7 34,1" fill="none" stroke="#B4842E" stroke-width="2"/><circle cx="34" cy="1" r="2.4" fill="#B4842E"/></svg>
+        </div>
+        <div class="kpi-label">Lift in process efficiency via automation</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="summary">
+    <div class="section-head">
+      <h2>Profile</h2>
+      <div class="tag">10+ years, CFO-facing BI &amp; Power Platform</div>
+    </div>
+    <div class="section-body">
+      <div></div>
+      <p class="summary-text">
+        Results-driven Senior BI Developer with over a decade of technology and operations experience, including <strong>5+ years architecting end-to-end Power BI reporting frameworks</strong>, scalable semantic data models, and enterprise Power Platform applications. Partners directly with executive leadership and corporate finance to deliver strategic KPI dashboards, ad-hoc financial analytics, and reporting solutions across Dataverse, SQL, and relational systems. Builds custom Copilot AI agents, implements Row-Level Security, designs recruitment analytics workflows, and automates ETL processes that cut manual reporting effort by up to 60%.
+      </p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <div class="tag">Three roles, one throughline: turning raw operations data into decisions</div>
+    </div>
+    <div class="section-body">
+      <div></div>
+      <div class="timeline">
+
+        <div class="job">
+          <div class="job-role">Senior BI Developer</div>
+          <div class="job-meta"><span>Concentrix Services Pvt Ltd</span><span class="dates">Jan 2021 – Present</span></div>
+          <p class="job-intro">Leads enterprise BI architecture, semantic modeling, and automated business solutions across organisational lines of business, directly supporting leadership and operational decision-making.</p>
+          <ul class="job-points">
+            <li><strong>Executive &amp; financial KPI reporting</strong> — architected and maintained enterprise Power BI dashboards for the CFO line of business, covering ad-hoc financial reporting, cost-variance analysis, and revenue tracking that accelerated executive decisions.</li>
+            <li><strong>Dataverse &amp; semantic modeling</strong> — engineered centralised semantic models and star-schema architectures with Power Query and advanced DAX, unifying fragmented data sources and cutting manual reporting overhead by ~60%.</li>
+            <li><strong>Copilot agent creation</strong> — built and deployed custom Copilot AI agents connected to organisational data, enabling conversational, self-service analytics for business stakeholders.</li>
+            <li><strong>Power Apps &amp; Power Automate</strong> — developed Canvas and Model-Driven apps on Dataverse and SharePoint, and orchestrated cloud flows that removed manual handoffs and lifted process efficiency by 40%+.</li>
+            <li><strong>ETL &amp; relational data</strong> — implemented optimised ETL pipelines across relational databases, SQL, and REST APIs, tuning query performance and scheduled dashboard refreshes.</li>
+            <li><strong>Governance</strong> — administered Power BI Service, workspaces, and Row-Level Security to enforce role-based access and compliance.</li>
+            <li><strong>Recruitment analytics</strong> — partnered with talent acquisition leadership on capacity models, hiring funnel reporting, and automated tracking dashboards that streamlined onboarding.</li>
+            <li>Authored technical documentation, data dictionaries, and schema mapping to standardise team handover and knowledge transfer, alongside regular DAX tuning and user training.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-role">Senior Support Executive</div>
+          <div class="job-meta"><span>Zolostays Property Solutions Pvt Ltd</span><span class="dates">Feb 2019 – Jun 2020</span></div>
+          <p class="job-intro">Administered financial verification operations and automated payment workflows across Razorpay, Instamojo, and Zendesk.</p>
+          <ul class="job-points">
+            <li>Analysed daily transaction logs to ensure high reconciliation accuracy across payment gateways.</li>
+            <li>Ran data-driven root-cause investigations to resolve billing disputes and service escalations, lifting CSAT.</li>
+            <li>Monitored support metrics to optimise resource allocation and hold SLA compliance across cancellation, refund, and onboarding lifecycles.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-role">Advisor II – Technical Support</div>
+          <div class="job-meta"><span>Concentrix India Pvt Ltd</span><span class="dates">Apr 2014 – Nov 2018</span></div>
+          <p class="job-intro">Delivered tier-2 diagnostic support for global iOS ecosystem users, from crash reports to cloud sync failures.</p>
+          <ul class="job-points">
+            <li>Held 90%+ CSAT and first-contact resolution using methodical root-cause debugging trees.</li>
+            <li>Extracted and monitored ticket backlog and SLA adherence trends to recommend process optimisations.</li>
+            <li>Mentored junior specialists and authored standardised troubleshooting runbooks that cut average handle time.</li>
+            <li>Served as Acting Team Leader during coverage windows, managing escalations and incident response.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <h2>Skills &amp; Competencies</h2>
+      <div class="tag">Grouped by where the work actually happens</div>
+    </div>
+    <div class="section-body">
+      <div></div>
+      <div class="skills-grid">
+        <div class="skill-panel">
+          <h3>BI &amp; Visualisation</h3>
+          <p>Power BI (Desktop &amp; Service Administration), executive KPI dashboards, DAX, Power Query, Power Pivot, Row-Level Security, Tableau, Excel (expert).</p>
+        </div>
+        <div class="skill-panel">
+          <h3>Power Platform &amp; AI</h3>
+          <p>Power Apps (Canvas &amp; Model-Driven), Power Automate (cloud &amp; business process flows), Copilot agent creation, Dataverse, SharePoint integration.</p>
+        </div>
+        <div class="skill-panel">
+          <h3>Data Architecture</h3>
+          <p>SQL, relational databases, semantic modeling, star-schema data modeling, ETL pipelines, REST APIs.</p>
+        </div>
+        <div class="skill-panel">
+          <h3>Governance &amp; Operations</h3>
+          <p>Recruitment operations design, technical documentation, reporting tools administration, Agile / SDLC methodologies.</p>
+        </div>
+        <div class="skill-panel">
+          <h3>Methods</h3>
+          <p>Python for data analytics, ad-hoc executive analysis, stakeholder management, business analysis, process automation, data storytelling.</p>
+        </div>
+        <div class="skill-panel">
+          <h3>Leadership</h3>
+          <p>C-level stakeholder communication, translating technical architecture for business leaders, technical mentorship, SOP creation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="more" style="border-bottom:none;">
+    <div class="section-head">
+      <h2>Awards &amp; Background</h2>
+      <div class="tag">&nbsp;</div>
+    </div>
+    <div class="section-body">
+      <div></div>
+      <div class="foot-grid">
+        <div class="foot-panel">
+          <h3>Awards &amp; Recognition</h3>
+          <div class="award">
+            <div class="name">Wall of Fame</div>
+            <div class="desc">Recognised for BI initiatives, reporting automation, and impactful dashboard delivery — Concentrix.</div>
+          </div>
+          <div class="award">
+            <div class="name">GEM Award</div>
+            <div class="desc">Superior operational efficiency, workflow innovation, and team collaboration.</div>
+          </div>
+          <div class="award">
+            <div class="name">Employee of the Month ×3</div>
+            <div class="desc">Consistent service delivery, technical competence, and client satisfaction.</div>
+          </div>
+        </div>
+        <div class="foot-panel">
+          <h3>Education</h3>
+          <div class="edu-item">Bachelor of Computer Applications (BCA)</div>
+        </div>
+        <div class="foot-panel">
+          <h3>Languages</h3>
+          <div class="lang-row">
+            <span>English</span><span>Hindi</span><span>Urdu</span><span>Tamil</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="closing">
+  <div class="wrap closing-inner">
+    <div>
+      <h2>Let's talk about your reporting stack.</h2>
+      <p>Bengaluru, Karnataka · Open to Senior BI / Power Platform roles</p>
+    </div>
+    <a class="cta" href="mailto:nissar6878@gmail.com">Email Nissar</a>
+  </div>
+</footer>
+
+</body>
+</html>
